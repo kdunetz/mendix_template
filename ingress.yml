@@ -1,0 +1,20 @@
+apiVersion: extensions/v1beta1
+kind: Ingress
+metadata:
+  annotations:
+    ingress.kubernetes.io/rewrite-target: /
+    kubernetes.io/ingress.class: nginx
+  name:  mendix-NAME-ingress
+  namespace: default
+spec:
+  rules:
+  - host: mendix-NAME
+    http:
+      paths:
+      - backend:
+          serviceName: mendix-NAME
+          servicePort: 80 
+status:
+  loadBalancer:
+    ingress:
+    - ip: 169.45.189.35

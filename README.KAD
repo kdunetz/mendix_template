@@ -1,0 +1,31 @@
+Pull down latest code....via SVN call to Mendix...mv from trunk directory to build directory 
+backup build directory to codename directory
+svn checkout https://teamserver.sprintr.com/57d3571d-ef27-4c89-a980-b64b588e31b8/trunk --username "kdunetz@us.ibm.com" --password Sideout01! geico_app
+
+mv geico_app build
+
+make build-kevin-image
+docker push kdunetz/mendix-buildpack:v1.2
+
+Command to run code locally
+docker run -it   -p 8080:80   -e ADMIN_PASSWORD=Password01!   -e DATABASE_ENDPOINT=postgres://postgres:4fjPLHgUDI@169.45.189.35:30131/postgres  -e LOGGING_CONFIG='{"Core": "TRACE"}' -e BUILDPACK_XTRACE=true   kdunetz/mendix-buildpack:v1.2
+Used Postgres from Community...IBM one didn't work for some reason
+
+
+kubectl delete -f kubernetes/mendix-app-kad.yml
+kubectl delete -f kubernetes/mendix-service.yml
+kubectl create -f kubernetes/mendix-app-kad.yml
+kubectl create -f kubernetes/mendix-service.yml
+MxAdmin/Password1!
+
+Install
+
+npm install --save -g pgtools
+
+CLI Example
+
+createdbjs mendix123 --user=postgres --password=4fjPLHgUDI --host=169.45.189.35 --port=30131
+
+How to clone entire directory
+
+cp -R ../mendix_geico_app/* .
