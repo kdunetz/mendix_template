@@ -1,7 +1,7 @@
 #!/bin/bash
 
 NAMESPACE=default
-NAME=newapp
+NAME=newapp-2
 APPID=c2cac359-27f4-41d2-ae58-34adfc0ddf24
 IMAGE=kdunetz/mendix-$NAME:1.0
 
