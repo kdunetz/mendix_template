@@ -1,0 +1,10 @@
+Create an App in Mendix...debug..test..run Locally
+Commit code to TeamServer (SVN)
+Log into Developer Portal..and get the APP ID ..store somewhere
+Git clone the ICP Mendix Template at https://github.com/kdunetz/mendix_template.git
+Edit mk file
+Change the variables NAME, APPID and optionally the IMAGE and NAMESPACE values
+
+run mk
+
+Go to ICP and show app working
