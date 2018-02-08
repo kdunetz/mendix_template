@@ -1,8 +1,15 @@
 Create an App in Mendix...debug..test..run Locally
+
 Commit code to TeamServer (SVN)
-Log into Developer Portal..and get the APP ID ..store somewhere
-Git clone the ICP Mendix Template at https://github.com/kdunetz/mendix_template.git
+
+Log into Project Dashboard and get the APP ID from the Edit App button and click on the settings ..store somewhere
+
+Sample APP ID b12507b1-03ba-433d-a34b-a19d607f5303
+
+Git clone the ICP Mendix Template using git clone https://github.com/kdunetz/mendix_template.git new_surveyapp
+
 Edit mk file
+
 Change the variables NAME, APPID and optionally the IMAGE and NAMESPACE values
 
 run mk

@@ -1,5 +1,7 @@
 Pull down latest code....via SVN call to Mendix...mv from trunk directory to build directory 
+
 backup build directory to codename directory
+
 svn checkout https://teamserver.sprintr.com/57d3571d-ef27-4c89-a980-b64b588e31b8/trunk --username "kdunetz@us.ibm.com" --password Sideout01! geico_app
 
 mv geico_app build
