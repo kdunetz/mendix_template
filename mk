@@ -1,12 +1,17 @@
 #!/bin/bash
 
 NAMESPACE=default
-NAME=mendix_icp-overview-app
+NAME=icp-overview-app-mendix
 APPID=cf7d92fb-6ac5-4516-ba36-485ece2c3dac
 IMAGE=kdunetz/mendix-$NAME:1.0
 
 if [[ $NAME = *"_"* ]]; then
-  echo "NAME field cannot have underscores in them"
+  echo "$NAME variable cannot have underscores in them"
+  exit
+fi
+
+if [[ $NAME = *"mendix"* ]]; then
+  echo "$NAME variable should not have the name mendix in there"
   exit
 fi
 
