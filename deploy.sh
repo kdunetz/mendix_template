@@ -1,7 +1,7 @@
 #!/bin/bash
 
 NAMESPACE=default
-NAME=icp-overview-app-mendix
+NAME=icp-overview-app
 APPID=cf7d92fb-6ac5-4516-ba36-485ece2c3dac
 IMAGE=kdunetz/mendix-$NAME:1.0
 
