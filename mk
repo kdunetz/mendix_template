@@ -1,9 +1,16 @@
 #!/bin/bash
 
 NAMESPACE=default
-NAME=newapp-2
-APPID=c2cac359-27f4-41d2-ae58-34adfc0ddf24
+NAME=mendix_icp-overview-app
+APPID=cf7d92fb-6ac5-4516-ba36-485ece2c3dac
 IMAGE=kdunetz/mendix-$NAME:1.0
+
+if [[ $NAME = *"_"* ]]; then
+  echo "NAME field cannot have underscores in them"
+  exit
+fi
+
+
 
 createdbjs $NAME --user=postgres --password=4fjPLHgUDI --host=169.45.189.35 --port=30131
 
