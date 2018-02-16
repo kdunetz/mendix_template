@@ -16,14 +16,15 @@ if [[ $NAME = *"mendix"* ]]; then
 fi
 
 
+# NO BUILD HERE
 
-createdbjs $NAME --user=postgres --password=4fjPLHgUDI --host=169.45.189.35 --port=30131
+#createdbjs $NAME --user=postgres --password=4fjPLHgUDI --host=169.45.189.35 --port=30131
 
-svn checkout https://teamserver.sprintr.com/$APPID/trunk --username "kdunetz@us.ibm.com" --password Sideout01! build 
+#svn checkout https://teamserver.sprintr.com/$APPID/trunk --username "kdunetz@us.ibm.com" --password Sideout01! build 
 
-docker build --build-arg BUILD_PATH=build -t $IMAGE .
+#docker build --build-arg BUILD_PATH=build -t $IMAGE .
 
-docker push $IMAGE
+#docker push $IMAGE
 
 IMAGE=${IMAGE//[\/]/\\\/}
 kubectl create -f <(cat kubernetes/mendix-service.yml | sed "s/IMAGE/$IMAGE/g" | sed "s/NAME/$NAME/g") -n $NAMESPACE
