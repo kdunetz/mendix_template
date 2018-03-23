@@ -44,11 +44,11 @@ case $i in
     ;;
 esac
 done
-echo $PG_USER
-echo $PG_PASSWORD
-echo $PG_DATABASE
-echo $PG_IP
-echo $PG_PORT
+echo "PG_USER="$PG_USER
+echo "PG_PASSWORD="$PG_PASSWORD
+echo "PG_DATABASE="$PG_DATABASE
+echo "PG_IP="$PG_IP
+echo "PG_PORT="$PG_PORT
 
 # NO BUILD HERE
 
