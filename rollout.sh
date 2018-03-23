@@ -21,22 +21,12 @@ if [[ $NAME = *"mendix"* ]]; then
   exit
 fi
 
-
-
-createdbjs $NAME --user=postgres --password=4fjPLHgUDI --host=169.45.189.35 --port=30131
-
-svn checkout https://teamserver.sprintr.com/$APPID/trunk --username "kdunetz@us.ibm.com" --password Sideout01! build 
-
-docker build --build-arg BUILD_PATH=build -t $IMAGE .
-
-docker push $IMAGE
-
 IMAGE=${IMAGE//[\/]/\\\/}
 
 kubectl patch statefulset mendix-$NAME-stateful -p '{"spec":{"updateStrategy":{"type":"RollingUpdate"}}}' -n default
 
-echo `kubectl patch statefulset mendix-$NAME-stateful --type='json' -p='[{"op": "replace", "path": "/spec/template/spec/containers/0/image", "value":$IMAGE}]' -n default`
+#kubectl patch statefulset mendix-$NAME-stateful --type='json' -p='[{"op": "replace", "path": "/spec/template/spec/containers/0/image", "value":$IMAGE}]' -n default
 
 SUBCOMMAND="[{\"op\": \"replace\", \"path\": \"/spec/template/spec/containers/0/image\", \"value\":\"$IMAGE\"}]"
 
-#kubectl patch statefulset mendix-$NAME-stateful --type='json' -p="$SUBCOMMAND" -n default
+kubectl patch statefulset mendix-$NAME-stateful --type='json' -p="$SUBCOMMAND" -n default

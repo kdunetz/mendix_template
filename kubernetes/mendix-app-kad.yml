@@ -21,16 +21,26 @@ spec:
           imagePullPolicy: Always
           ports:
             - containerPort: 80
+#          livenessProbe:
+#             httpGet:
+#               path: /
+#               port: 80
+#             initialDelaySeconds: 15
+#             periodSeconds: 20 
           volumeMounts:
             - mountPath: "/build/data/files"
               name: mendix-data
           env:
             - name: ADMIN_PASSWORD
-              value: "MxAdmin" 
+              value: "Tac98ic01!" 
             - name: DATABASE_ENDPOINT
-              value: postgres://postgres:4fjPLHgUDI@169.45.189.35:30131/NAME
+              value: postgres://PG_USER:PG_PASSWORD@PG_IP:PG_PORT/PG_DATABASE
+            - name: LICENSE_KEY
+              value: LS0tLS1CRUdJTiBQR1AgU0lHTkVEIE1FU1NBR0UtLS0tLQpIYXNoOiBTSEExCgp7IkNvbXBvbmVudHMiOlsiTW9iaWxlIl0sIkNvbXBhbnkiOiJNZW5kaXgiLCJTZXBhcmF0ZUFub255bW91c1VzZXJzIjp0cnVlLCJFeHBpcmF0aW9uRGF0ZSI6MTYxOTc0MDgwMDAwMCwiVXNlckxpbWl0YXRpb25zIjpbeyJMaW1pdGF0aW9uVHlwZSI6Ik5hbWVkIiwiQW1vdW50VHlwZSI6IlVubGltaXRlZCJ9LHsiTGltaXRhdGlvblR5cGUiOiJDb25jdXJyZW50IiwiQW1vdW50VHlwZSI6IlVubGltaXRlZCJ9LHsiTGltaXRhdGlvblR5cGUiOiJDb25jdXJyZW50QW5vbnltb3VzIiwiQW1vdW50VHlwZSI6IlVubGltaXRlZCJ9XSwiTGljZW5zZUlEIjoiei9vbm5IekZ1c0xXLy82MWVNMDRyOGpHYkJZPSIsIkxpY2Vuc2VUeXBlIjoiU3Vic2NyaXB0aW9uIiwiUnVudGltZU1vZGUiOiJUZXN0aW5nIn0KLS0tLS1CRUdJTiBQR1AgU0lHTkFUVVJFLS0tLS0KVmVyc2lvbjogQkNQRyB2MS41MAoKaVFKUEJBRUJBZ0E1QlFKYUhXYjdNaHhOWlc1a2FYZ2dUR2xqWlc1elpTQlRhV2R1YVc1bklFdGxlU0E4YkdsagpaVzV6YVc1blFHMWxibVJwZUM1amIyMCtBQW9KRUpqaHpNT2V3TlJsSVFnUC8yTmRPSHlBSjZvbTlreDVGQjhECkdhdlJ5U1hzMkhhdlpoUEVkUXFuVktZRFFzSXZlYTNMMlJMOWxmUkkzcWVPdGUvT25ObVB4ZHpQRW05OExVVGIKMXJucUUzTFpJUUVtMGpLeGhqNkE4ZFMyeDgvYkRFLzVkK29EU3hMSWoxcGY4Nk8yZmN3S0liSlpTNlc0NkgzOQpOSEtzZ0dLeERkT1VxMERrQ2gxNlFZZUhEQXc4bTNTa0ptL0NkZ2IzRENqOXlBRmhURGhHcmJjTDk1Y3NmbTh2ClRXdEdiUUUrci9BY01FZWN3QS84K3BsTStkU2xLSHpISjdnOE5ON2dxRFpuMnFvOU9jK1pwOEl2bi9CTnpwdHcKMnhXZTdCbVU3RDlSVVlsNzVaYmJpenZnZUFtcFBRZTRHaU16ci9EQUpMaGk1aGZsREhzVTVmTnFIdVFLUTlCYwpMeTVpZDlhZDFYREVubzdhUGd0R0xWZHU5Rzg0QUs3VnoxV3diSlNGWXhNNkg2VTJmNitoRnI0cFF0aVRxS3ZOCmg3dE1GRStydlR5c1FLMG1qNEdzSUVWcHRmN2wzNHNuKytFdkhwcGdrODh0SHRSNERGaEFhNkhGWXFHTTlsSmUKQmxXVVlHcmtqQ0pwb3NZTmNwVExxOXFjdHFma21SQWJEU2tZU1IxSEdyWjFXdWpJZk1tMVF5aHAzdUViR3JxMgo3UldNb0FnSFZ5SjVKT3pZbmRvZE8xTTI0ZUsrUFJHdko4VWsxekVRbnFzci9hTG5zYm1VWmpkTUhUTFZqMXVsCklvM2twWHhDZVhNd1dZUERUSTUvZzB5bm5QNnFHdmxrNmFCNUZ1SDhtTnFPNXZJbTdRSmZOMDNFMEJHeFVBOUYKcmx2VU1ObUg2elU2MXFjN0x2ZzVhQldCCj0xcXV1Ci0tLS0tRU5EIFBHUCBTSUdOQVRVUkUtLS0tLQo=  
+            - name: LICENSE_ID
+              value: fcf3a4dd-800a-4a94-9821-2dc5af3cb1b0
             - name: DEVELOPMENT_MODE
-              value: "true"
+              value: "false"
       volumes:
         - hostPath:
             path: "/tmp"

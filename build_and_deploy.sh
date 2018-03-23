@@ -1,9 +1,15 @@
 #!/bin/bash
 
-NAMESPACE=default
-NAME=icp-overview-app
-APPID=cf7d92fb-6ac5-4516-ba36-485ece2c3dac
-IMAGE=kdunetz/mendix-$NAME:1.0
+#NAMESPACE=default
+#NAME=icp-overview-app
+#APPID=cf7d92fb-6ac5-4516-ba36-485ece2c3dac
+#IMAGE=kdunetz/mendix-$NAME:1.0
+
+if [ -z "$IMAGE" ]
+then
+   echo "Please set environment variables with . ./setenv.sh"
+   exit
+fi
 
 if [[ $NAME = *"_"* ]]; then
   echo "$NAME variable cannot have underscores in them"
